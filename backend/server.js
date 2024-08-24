@@ -17,9 +17,9 @@ const port = process.env.PORT || 8080;
 
 // Define rules for json-server-auth
 const rules = auth.rewriter({
-  "/users": 660,
-  "/login": 660,
-  "/register": 660
+  "users": 660,
+  "login": 660,
+  "register": 660
 });
 
 // Bind the router db to the app
@@ -35,7 +35,7 @@ app.use(rules);
 app.use(auth);
 
 // Add Google Sheets data routes
-app.use('/api/data', dataRoutes);
+app.use('api/data', dataRoutes);
 
 // Apply json-server router after all other middlewares and routes
 app.use(router);
