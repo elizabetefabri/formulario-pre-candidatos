@@ -3,5 +3,41 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Definições de @font-face primeiro */
+@font-face {
+  font-family: 'Livvic';
+  src: url('./assets/fonts/Livvic/Livvic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Livvic';
+  src: url('./assets/fonts/Livvic/Livvic-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Livvic';
+  src: url('./assets/fonts/Livvic/Livvic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Livvic';
+  src: url('./assets/fonts/Livvic/Livvic-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Estilos globais */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Livvic', "Helvetica Neue", sans-serif;
+}
