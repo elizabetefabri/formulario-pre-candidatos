@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Corrigir
   styleUrls: ['./create-data.component.css'],
 })
 export class CreateDataComponent implements OnInit {
+  googleSheetForm!: FormGroup;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
