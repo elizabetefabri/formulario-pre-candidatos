@@ -1,0 +1,62 @@
+<section class="min-h-screen flex items-center bg-gray-100">
+  <div class="max-w-7xl w-full mx-auto p-4 bg-white shadow-md rounded">
+    <mat-vertical-stepper #stepper>
+      <!-- Passo 1 -->
+      <mat-step [stepControl]="firstFormGroup" errorMessage="">
+        <ng-template matStepLabel >Cadastro do Candidato</ng-template>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <!-- Passo 2 -->
+      <mat-step [stepControl]="secondFormGroup" errorMessage="">
+        <ng-template matStepLabel class="step-02">Endereço Residencial do Candidato</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <!-- Passo 3 -->
+      <mat-step [stepControl]="thirdFormGroup" errorMessage="">
+        <ng-template matStepLabel>Endereço do Comitê</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <!-- Passo 4 -->
+      <mat-step [stepControl]="fourthFormGroup" errorMessage="">
+        <ng-template matStepLabel>Endereço para Justiça Eleitoral</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <!-- Passo 5 -->
+      <mat-step [stepControl]="fifthFormGroup" errorMessage="">
+        <ng-template matStepLabel>Endereço do CNPJ</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <!-- Passo 6 -->
+      <mat-step [stepControl]="sixthFormGroup" errorMessage="">
+        <ng-template matStepLabel>Dados Cadastrais do Candidato</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <!-- Passo 7 -->
+      <mat-step>
+        <ng-template matStepLabel>Documentos Anexos</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+</section>
