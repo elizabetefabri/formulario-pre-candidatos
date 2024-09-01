@@ -18,6 +18,20 @@ import { Step04Component } from './Layout/Components/create-data/step-04/step-04
 import { Step05Component } from './Layout/Components/create-data/step-05/step-05.component';
 import { Step06Component } from './Layout/Components/create-data/step-06/step-06.component';
 import { Step07Component } from './Layout/Components/create-data/step-07/step-07.component';
+import { TituloEleitoralComponent } from './Layout/Components/create-data/step-01/components/titulo-eleitoral/titulo-eleitoral.component';
+import { CpfComponent } from './Layout/Components/create-data/step-01/components/cpf/cpf.component';
+import { RgComponent } from './Layout/Components/create-data/step-01/components/rg/rg.component';
+import { DataExpedicaoRgComponent } from './Layout/Components/create-data/step-01/components/data-expedicao-rg/data-expedicao-rg.component';
+import { UfEstadoComponent } from './Layout/Components/create-data/step-01/components/uf-estado/uf-estado.component';
+import { DataNascimentoComponent } from './Layout/Components/create-data/step-01/components/data-nascimento/data-nascimento.component';
+import { Telefone01Component } from './Layout/Components/create-data/step-01/components/telefone-01/telefone-01.component';
+import { Telefone02Component } from './Layout/Components/create-data/step-01/components/telefone-02/telefone-02.component';
+import { EstadoCivilComponent } from './Layout/Components/create-data/step-01/components/estado-civil/estado-civil.component';
+import { RacaCorComponent } from './Layout/Components/create-data/step-01/components/raca-cor/raca-cor.component';
+import { GeneroComponent } from './Layout/Components/create-data/step-01/components/genero/genero.component';
+import { GrauInstrucaoComponent } from './Layout/Components/create-data/step-01/components/grau-instrucao/grau-instrucao.component';
+import { OcupacaoProfissionalComponent } from './Layout/Components/create-data/step-01/components/ocupacao-profissional/ocupacao-profissional.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +43,20 @@ import { Step07Component } from './Layout/Components/create-data/step-07/step-07
     Step04Component,
     Step05Component,
     Step06Component,
-    Step07Component
+    Step07Component,
+    TituloEleitoralComponent,
+    CpfComponent,
+    RgComponent,
+    DataExpedicaoRgComponent,
+    UfEstadoComponent,
+    DataNascimentoComponent,
+    Telefone01Component,
+    Telefone02Component,
+    EstadoCivilComponent,
+    RacaCorComponent,
+    GeneroComponent,
+    GrauInstrucaoComponent,
+    OcupacaoProfissionalComponent
   ],
   imports: [
     BrowserModule,
