@@ -1,22 +1,18 @@
-
-<h2 class="text-left text-xl mb-6">Todos os campos com <span class="text-red-700">*</span> são obrigatórios</h2>
+<form [formGroup]="googleSheetForm" (ngSubmit)="onNext()">
+  <h2 class="text-left text-xl mb-6">Todos os campos com <span class="text-red-700">*</span> são obrigatórios</h2>
 
   <div class="mb-4 text-left">
     <h3 class="text-lg font-medium text-gray-700">Usuário Logado: {{ userName }}</h3>
   </div>
-
-  <!-- Nome civil ou social completo: -->
+  <!-- Nome civil ou social completo -->
   <div class="mb-4">
     <label for="nomeCivil" class="block text-sm font-medium text-gray-700">Nome civil ou social completo:</label>
-    <input id="nomeCivil" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomeCivil"
-      required>
+    <input id="nomeCivil" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomeCivil" required>
   </div>
-  <!-- Nome de acordo com a receita federal: -->
+  <!-- Nome de acordo com a receita federal -->
   <div class="mb-4">
-    <label for="nomeReceita" class="block text-sm font-medium text-gray-700">Nome de acordo com a receita
-      federal:</label>
-    <input id="nomeReceita" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomeReceita"
-      required>
+    <label for="nomeReceita" class="block text-sm font-medium text-gray-700">Nome de acordo com a receita federal:</label>
+    <input id="nomeReceita" class="border border-gray-300 p-2 w-full h-10 rounded-md" formControlName="nomeReceita" required>
   </div>
   <!-- Título eleitoral: -->
   <div class="mb-4">
@@ -146,3 +142,4 @@
     </div>
   </div>
 
+</form>

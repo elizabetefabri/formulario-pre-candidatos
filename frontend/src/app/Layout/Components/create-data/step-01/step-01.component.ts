@@ -21,6 +21,11 @@ export class Step01Component implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.initializeForm();
+    this.loadData();
+  }
+
+  initializeForm() {
     this.googleSheetForm = this.fb.group({
       nomeCivil: ['', Validators.required],
       nomeReceita: ['', Validators.required],
@@ -63,6 +68,21 @@ export class Step01Component implements OnInit {
   }
 
   onNext() {
-    // this.router.navigate(['/passo-02']);
+    if (this.googleSheetForm.valid) {
+      const formData = this.googleSheetForm.value;
+      this.serviceSheet.addData(formData).subscribe(
+        response => {
+          console.log('Dados enviados com sucesso:', response);
+        },
+        error => {
+          console.error('Erro ao enviar dados:', error);
+          alert('Ocorreu um erro ao enviar os dados. Por favor, tente novamente.');
+        }
+      );
+    } else {
+      console.log('Formulário inválido');
+      alert('Por favor, preencha todos os campos obrigatórios antes de continuar.');
+    }
   }
+
 }
