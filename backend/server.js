@@ -25,17 +25,17 @@ const rules = auth.rewriter({
 // Bind the router db to the app
 app.db = router.db;
 
-// Apply middlewares
-app.use(middlewares);
+// Aplicar middlewares
 app.use(cors());
-app.use(express.json()); // substitui bodyParser.json()
+app.use(express.json()); 
+app.use(middlewares);
 
 // Apply auth and routes rules
 app.use(rules);
 app.use(auth);
 
 // Add Google Sheets data routes
-app.use('api/data', dataRoutes);
+app.use('/api/data', dataRoutes); 
 
 // Apply json-server router after all other middlewares and routes
 app.use(router);
