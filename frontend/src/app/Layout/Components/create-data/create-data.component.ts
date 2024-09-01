@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Corrigir a importação
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
+import { ApiService } from '../../Services/Api/api.service';
 
 @Component({
   selector: 'app-create-data',
@@ -7,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Corrigir
   styleUrls: ['./create-data.component.css'],
 })
 export class CreateDataComponent implements OnInit {
-  googleSheetForm!: FormGroup;
+  @ViewChild('stepper') private stepper!: MatStepper;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -16,7 +18,7 @@ export class CreateDataComponent implements OnInit {
   sixthFormGroup: FormGroup;
   seventhFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder, private serviceSheet: ApiService) {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
     });
@@ -40,4 +42,42 @@ export class CreateDataComponent implements OnInit {
     });
   }
   ngOnInit(): void {}
+
+  onSubmit() {
+    // Verificar se todos os formulários são válidos
+    if (this.firstFormGroup.valid &&
+        this.secondFormGroup.valid &&
+        this.thirdFormGroup.valid &&
+        this.fourthFormGroup.valid &&
+        this.fifthFormGroup.valid &&
+        this.sixthFormGroup.valid &&
+        this.seventhFormGroup.valid) {
+
+      // Coletar todos os dados dos formulários
+      const allFormData = {
+        ...this.firstFormGroup.value,
+        ...this.secondFormGroup.value,
+        ...this.thirdFormGroup.value,
+        ...this.fourthFormGroup.value,
+        ...this.fifthFormGroup.value,
+        ...this.sixthFormGroup.value,
+        ...this.seventhFormGroup.value,
+      };
+
+      // Enviar os dados para o Google Sheets
+      this.serviceSheet.addData(allFormData).subscribe(
+        response => {
+          console.log('Todos os dados enviados com sucesso:', response);
+          alert('Dados enviados com sucesso!');
+          this.stepper.reset(); // Resetar o stepper após o envio
+        },
+        error => {
+          console.error('Erro ao enviar os dados:', error);
+          alert('Ocorreu um erro ao enviar os dados. Por favor, tente novamente.');
+        }
+      );
+    } else {
+      alert('Por favor, preencha todos os campos obrigatórios em todas as etapas.');
+    }
+  }
 }
