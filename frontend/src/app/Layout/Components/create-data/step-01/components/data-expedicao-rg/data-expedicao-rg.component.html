@@ -1,0 +1,19 @@
+<section [formGroup]="formGroup">
+  <label for="dataExpedicaoRg" class="block text-sm font-medium text-gray-700">Data de Expedição do RG:</label>
+  <input
+    id="dataExpedicaoRg"
+    matInput
+    class="border p-2 w-full h-10 rounded-md focus:outline-none"
+    [ngClass]="{
+      'border-red-500': formGroup.get('dataExpedicaoRg')?.invalid && formGroup.get('dataExpedicaoRg')?.touched,
+      'border-green-500': formGroup.get('dataExpedicaoRg')?.valid && formGroup.get('dataExpedicaoRg')?.touched
+    }"
+    placeholder="dd/mm/aaaa"
+    formControlName="dataExpedicaoRg"
+    [mask]="'00/00/0000'"
+    required
+  >
+  <div *ngIf="formGroup.get('dataExpedicaoRg')?.invalid && formGroup.get('dataExpedicaoRg')?.touched" class="text-red-500">
+    Data inválida
+  </div>
+</section>

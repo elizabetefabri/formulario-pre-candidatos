@@ -1,0 +1,9 @@
+<section [formGroup]="formGroup">
+  <label for="racaCor" class="block text-sm font-medium text-gray-700">Raça/Cor:</label>
+  <select id="racaCor" formControlName="racaCor" class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300" required>
+    <option *ngFor="let key of racaCorKeys" [value]="racasCores[key]">{{ racasCores[key] }}</option>
+  </select>
+  <div *ngIf="formGroup.get('racaCor')?.invalid && formGroup.get('racaCor')?.touched" class="text-red-500">
+    Raça/Cor inválida
+  </div>
+</section>

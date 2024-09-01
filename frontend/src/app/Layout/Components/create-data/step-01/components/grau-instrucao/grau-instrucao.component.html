@@ -1,0 +1,11 @@
+<section [formGroup]="formGroup">
+  <label for="grauInstrucao" class="block text-sm font-medium text-gray-700">Grau de instrução:</label>
+  <select id="grauInstrucao" formControlName="grauInstrucao"
+    class="border border-gray-300 p-2 w-full h-10 rounded-md focus:outline-none focus:ring-0 focus:ring-gray-300 focus:border-gray-300"
+    required>
+    <option *ngFor="let key of grauInstrucaoKeys" [value]="grauInstrucao[key]">{{ grauInstrucao[key] }}</option>
+  </select>
+  <div *ngIf="formGroup.get('grauInstrucao')?.invalid && formGroup.get('grauInstrucao')?.touched" class="text-red-500">
+    Gênero inválido
+  </div>
+</section>
