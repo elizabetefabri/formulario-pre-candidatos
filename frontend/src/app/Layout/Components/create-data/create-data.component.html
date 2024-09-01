@@ -1,11 +1,12 @@
+<!-- COMPONENTE PAI CREATE DATA -->
 <section class="min-h-screen flex items-center bg-gray-100">
   <div class="max-w-7xl w-full mx-auto p-4 bg-white shadow-md rounded">
-    <mat-vertical-stepper #stepper>
+    <mat-horizontal-stepper #stepper >
       <!-- Passo 1 -->
       <mat-step [stepControl]="firstFormGroup" errorMessage="">
         <ng-template matStepLabel>Cadastro do Candidato</ng-template>
         <app-step-01></app-step-01>
-        <button matStepperNext mat-button class="w-full p-2 bg-black text-white h-10 rounded-md">
+        <button mat-button class="w-full p-2  !bg-black !text-white h-10 rounded-md" matStepperNext>
           Próximo
         </button>
       </mat-step>
@@ -14,8 +15,11 @@
         <ng-template matStepLabel class="step-02">Endereço Residencial do Candidato</ng-template>
         <div>
           <app-step-02></app-step-02>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+
+          <div class="flex w-full space-x-2">
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperPrevious>Voltar</button>
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperNext>Próximo</button>
+          </div>
         </div>
       </mat-step>
       <!-- Passo 3 -->
@@ -23,8 +27,11 @@
         <ng-template matStepLabel>Endereço do Comitê</ng-template>
         <div>
           <app-step-03></app-step-03>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+
+          <div class="flex w-full space-x-2">
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperPrevious>Voltar</button>
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperNext>Próximo</button>
+          </div>
         </div>
       </mat-step>
       <!-- Passo 4 -->
@@ -32,8 +39,11 @@
         <ng-template matStepLabel>Endereço para Justiça Eleitoral</ng-template>
         <div>
           <app-step-04></app-step-04>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+
+          <div class="flex w-full space-x-2">
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperPrevious>Voltar</button>
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperNext>Próximo</button>
+          </div>
         </div>
       </mat-step>
       <!-- Passo 5 -->
@@ -41,8 +51,11 @@
         <ng-template matStepLabel>Endereço do CNPJ</ng-template>
         <div>
           <app-step-05></app-step-05>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+
+          <div class="flex w-full space-x-2">
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperPrevious>Voltar</button>
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperNext>Próximo</button>
+          </div>
         </div>
       </mat-step>
       <!-- Passo 6 -->
@@ -50,19 +63,25 @@
         <ng-template matStepLabel>Dados Cadastrais do Candidato</ng-template>
         <div>
           <app-step-06></app-step-06>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+
+          <div class="flex w-full space-x-2">
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperPrevious>Voltar</button>
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperNext>Próximo</button>
+          </div>
         </div>
       </mat-step>
       <!-- Passo 7 -->
-      <mat-step>
+      <mat-step [stepControl]="seventhFormGroup">
         <ng-template matStepLabel>Documentos Anexos</ng-template>
         <div>
           <app-step-07></app-step-07>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+
+          <div class="flex w-full space-x-2">
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button matStepperPrevious>Voltar</button>
+            <button class="w-1/2 p-2 !bg-black !text-white h-10 rounded-md" mat-button (click)="onSubmit()">Finalizar o cadastro</button>
+          </div>
         </div>
       </mat-step>
-    </mat-vertical-stepper>
+    </mat-horizontal-stepper>
   </div>
 </section>
